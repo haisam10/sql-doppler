@@ -7,6 +7,6 @@
 
 
 
-cd N4H
+cd sql-injection-main
 python N4H.py
 give URL
