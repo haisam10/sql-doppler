@@ -7,6 +7,6 @@
 
 
 
-cd sql-injection-main
+cd sql-doppler-main
 python N4H.py
-give URL
+give URL [like:- https://webpage.com/id=1
