@@ -43,7 +43,12 @@ def dump_data(url, db, table, columns):
     run_sqlmap(command)
 
 def main():
-    print(green_bold("N4H".center(50)))
+    print(green_bold("             .__                .___                   .__                 
+  ___________|  |             __| _/____ ______ ______ |  |   ___________  
+ /  ___/ ____/  |    ______  / __ |/  _ \\____ \\____ \|  | _/ __ \_  __ \ 
+ \___ < <_|  |  |__ /_____/ / /_/ (  <_> )  |_> >  |_> >  |_\  ___/|  | \/ 
+/____  >__   |____/         \____ |\____/|   __/|   __/|____/\___  >__|    
+     \/   |__|                   \/      |__|   |__|             \/        ".center(50)))
     url = input("Enter target URL: ").strip()
 
     while True:
