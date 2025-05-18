@@ -46,7 +46,7 @@ Run the tool using:
 bash
 Copy
 Edit
-python N4H.py.py
+python N4H.py
 
 🖥️ Features & Flow
 When you run the tool, you'll be guided through an interactive session consisting of:
