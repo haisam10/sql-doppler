@@ -38,13 +38,13 @@ Internet connection (if testing web targets)
 Save the script as N4H.py
 
 Open terminal or command prompt.
-```
+
 Run the tool using:
 
-> git clone https://github.com/haisam10/sql-doppler.git
-> cd sql-doppler
-> python N4H.py
-```
+git clone https://github.com/haisam10/sql-doppler.git
+cd sql-doppler
+python N4H.py
+
 🖥️ Features & Flow
 When you run the tool, you'll be guided through an interactive session consisting of:
 
