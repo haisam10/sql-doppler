@@ -1,20 +1,118 @@
-        ___
-       __H__
- ___ ___[(]_____ ___ ___  
-|_ -| . ["]     | .'| . |       
-|___|_  [)]_|_|_|__,|  _|
-      |_|V...       |_|   
+      
 
-             .__                .___                   .__                 
-  ___________|  |             __| _/____ ______ ______ |  |   ___________  
- /  ___/ ____/  |    ______  / __ |/  _ \\____ \\____ \|  | _/ __ \_  __ \ 
- \___ < <_|  |  |__ /_____/ / /_/ (  <_> )  |_> >  |_> >  |_\  ___/|  | \/ 
-/____  >__   |____/         \____ |\____/|   __/|   __/|____/\___  >__|    
-     \/   |__|                   \/      |__|   |__|             \/        
+███████  ██████  ██                ██████   ██████  ██████  ██████  ██      ███████ ██████
+██      ██    ██ ██                ██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██   ██
+███████ ██    ██ ██      █████     ██   ██ ██    ██ ██████  ██████  ██      █████   ██████
+     ██ ██ ▄▄ ██ ██                ██   ██ ██    ██ ██      ██      ██      ██      ██   ██
+███████  ██████  ███████           ██████   ██████  ██      ██      ███████ ███████ ██   ██
+            ▀▀
+⚠️ Warnings
+This tool is intended for educational and ethical penetration testing only.
 
+Unauthorized scanning of websites may be illegal.
 
-https://sqlmap.org        {1.9.2#stable}
+Always ensure you have permission before running tests on any target.
 
-cd sql-doppler-main
-python N4H.py
-give URL [like:- https://webpage.com/id=1
+👨‍💻 Author Info
+MD Haisam Hoque
+📧 Email: mdhh.info@gmail.com
+🌐 Portfolio: https://dev-haisam-resume.pantheonsite.io/
+📞 Phone: +880 1537161735
+
+🛰️ SQL Doppler — User Manual
+Author: MD Haisam Hoque
+Version: 1.0
+Description:
+SQL Doppler is a command-line interface tool built using Python to automate SQLMap operations for SQL injection penetration testing. This script simplifies the process of discovering databases, tables, columns, and dumping data from vulnerable web applications.
+
+⚙️ Requirements
+Before using SQL Doppler, make sure you have:
+
+Python 3.x installed
+
+sqlmap installed and added to system PATH
+
+You can download sqlmap from: https://sqlmap.org/
+
+Internet connection (if testing web targets)
+
+🚀 How to Run
+Save the script as sql_doppler.py.
+
+Open terminal or command prompt.
+
+Run the tool using:
+
+bash
+Copy
+Edit
+python N4H.py.py
+
+🖥️ Features & Flow
+When you run the tool, you'll be guided through an interactive session consisting of:
+
+1. 🔗 Enter Target URL
+Example: http://example.com/page.php?id=1
+
+2. 🧠 Get Databases
+The tool uses sqlmap to scan and list all available databases.
+
+You'll be prompted to select one from the list.
+
+3. 📦 Get Tables
+After selecting a database, the tool lists all tables within it.
+
+You can choose a specific table to explore.
+
+4. 📋 Get Columns
+The selected table's columns are retrieved and displayed.
+
+You will be prompted to input specific column names (comma-separated) you want to dump.
+
+5. 💾 Dump Data
+Dumps the data of selected columns using sqlmap.
+
+6. 🔁 Navigation Options
+After dumping data, you can:
+
+Go back to the list of databases
+
+Stay in the current database and select another table
+
+Exit the tool
+
+🧪 Sample Session
+bash
+Copy
+Edit
+Enter target URL: http://testphp.vulnweb.com/artists.php?artist=1
+
+Databases:
+1. acuart
+Select database: 1
+
+Tables:
+1. artists
+2. users
+Select table: 2
+
+Columns:
+1. id
+2. username
+3. password
+Enter column names to dump (comma separated): username,password
+
+[SQLMap output with dumped data]
+
+What next?
+0. Exit
+1. Show databases
+2. Show tables of current database
+Choice: 0
+Exiting...
+🎨 Terminal UI
+The tool features a custom green bold title in ASCII art:
+
+markdown
+Copy
+Edit
