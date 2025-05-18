@@ -15,7 +15,7 @@ Always ensure you have permission before running tests on any target.
 
 👨‍💻 Author Info
 MD Haisam Hoque
-🌐 Portfolio: https://haisam10.github.io/haisam_/
+🌐 Webpage: https://haisam10.github.io/haisam_/
 
 🛰️ SQL Doppler — User Manual
 Author: MD Haisam Hoque
@@ -35,15 +35,14 @@ You can download sqlmap from: https://sqlmap.org/
 Internet connection (if testing web targets)
 
 🚀 How to Run
-Save the script as sql_doppler.py.
+Save the script as N4H.py
 
 Open terminal or command prompt.
 
 Run the tool using:
 
-bash
-Copy
-Edit
+` git clone https://github.com/haisam10/sql-doppler.git `
+cd sql-doppler
 python N4H.py
 
 🖥️ Features & Flow
