@@ -1,16 +1,13 @@
-# 🚀 SQL Doppler — User Manual
+🚀 SQL Doppler — User Manual
 
 🧑‍💻 Author: MD Haisam Hoque
 🌐 Webpage: https://haisam10.github.io/freelancer/
----
 
 ## 📘 Overview
 
-**SQL Doppler** is a Python-based command-line interface (CLI) tool that automates SQLMap operations for streamlined SQL injection testing. With an intuitive menu system, users can quickly discover databases, tables, columns, and extract data from vulnerable web applications.
+SQL Doppler is a Python-based command-line interface (CLI) tool that automates SQLMap operations for streamlined SQL injection testing. With an intuitive menu system, users can quickly discover databases, tables, columns, and extract data from vulnerable web applications.
 
----
-
-## ⚠️ Legal Disclaimer
+⚠️ Legal Disclaimer
 
 ```
 ███████  ██████  ██                ██████   ██████  ██████  ██████  ██      ███████ ██████      
@@ -27,21 +24,18 @@
 					Happy Hacking (^-^)
 ```
 
-> 🔐 **For Ethical Use Only**
-> Do not scan or exploit any system without proper authorization. Unauthorized testing may be illegal and unethical.
+🔐 **For Ethical Use Only**
+Do not scan or exploit any system without proper authorization. Unauthorized testing may be illegal and unethical.
 
----
+⚙️ Requirements
 
-## ⚙️ Requirements
+✅ Python 3.x installed
+✅ `sqlmap` installed and added to system PATH
+🌐 Internet connection (if testing remote targets)
+🔗 [Download sqlmap](https://sqlmap.org/)
 
-* ✅ Python 3.x installed
-* ✅ `sqlmap` installed and added to system PATH
-* 🌐 Internet connection (if testing remote targets)
-* 🔗 [Download sqlmap](https://sqlmap.org/)
 
----
-
-## 🚀 Installation & Execution
+🚀 Installation & Execution
 
 ```bash
 git clone https://github.com/haisam10/sql-doppler.git
@@ -51,47 +45,44 @@ python N4H.py
 
 ---
 
-## 🖥️ Feature Highlights
+🖥️ Feature Highlights
 
-### 🔗 Step 1: Target Input
+🔗 Step 1: Target Input
 
 Prompt for a URL vulnerable to SQL injection.
-*Example:* `http://example.com/page.php?id=1`
+Example: http://example.com/page.php?id=1
 
----
 
-### 🧠 Step 2: Discover Databases
+
+🧠 Step 2: Discover Databases
 
 Automatically fetch and list all databases using `sqlmap`.
 *Select one to proceed.*
 
----
 
-### 📦 Step 3: View Tables
+
+📦 Step 3: View Tables
 
 Show all tables under the chosen database.
-*Select a table to proceed.*
+Select a table to proceed.
 
----
 
-### 📋 Step 4: View Columns
+📋 Step 4: View Columns
 
 Display all columns of the selected table.
-*User inputs which columns to dump.*
+User inputs which columns to dump.
 
----
 
-### 📀 Step 5: Dump Data
+📀 Step 5: Dump Data
 
 Extracts and displays records of selected columns in tabular format.
 
----
 
-### 🔁 Step 6: Navigation Options
+🔁 Step 6: Navigation Options
 
-* `1` ➡️ Go back to database selection
-* `2` ➡️ Choose another table
-* `0` ➡️ Exit the tool
+1 ➡️ Go back to database selection
+2 ➡️ Choose another table
+0 ➡️ Exit the tool
 
 ---
 
@@ -154,16 +145,16 @@ Options:
 
 ---
 
-## 🎨 User Interface
+🎨 User Interface
 
-* 🟩 Green ASCII Art Banner at Launch
-* ✅ Clean CLI with numbered options
-* 🚀 Real-time SQLMap execution
-* 🧭 Simple & Guided workflow
+🟩 Green ASCII Art Banner at Launch
+✅ Clean CLI with numbered options
+🚀 Real-time SQLMap execution
+🧭 Simple & Guided workflow
 
 ---
 
-## 📌 Project Metadata
+📌 Project Metadata
 
 | Attribute     | Info                                                                        |
 | ------------- | --------------------------------------------------------------------------- |
@@ -175,6 +166,6 @@ Options:
 
 ---
 
-✅ **Let the scanning begin!**
+✅ Let the scanning begin!
 
 ✨ Happy Hacking!
