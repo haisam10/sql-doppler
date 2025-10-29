@@ -14,7 +14,7 @@ ascii_art = '''
 							Made in Bangladesh
 							Owner: MD Haisam Hoque
 							webpage link: https://haisam10.github.io/freelancer/
-							version: 2.0
+							version: 2.1
 							Happy Hacking (^-^) 
 '''
 
@@ -30,6 +30,12 @@ def run_sqlmap(command):
 
 def parse_output(output, marker="[*]"):
     return [line.split(marker)[-1].strip() for line in output.splitlines() if marker in line]
+
+def ask_yes_no(prompt, default="n"):
+    resp = input(prompt + f" [{default}/{'y' if default=='n' else 'n'}]: ").strip().lower()
+    if resp == "":
+        resp = default
+    return resp in ("y", "yes")
 
 def main():
     print(green_bold(ascii_art))
@@ -92,13 +98,36 @@ def main():
                     for col in columns:
                         print(f" - {col}")
 
-                print("\nOptions:\n1. Enter column names to dump (comma separated)\n2. Back to tables")
+                # NEW: Ask whether to dump all columns or select specific columns
+                print("\nOptions:\n1. Dump columns (choose specific columns)\n2. Dump ALL columns of this table\n3. Back to tables")
                 col_choice = input("Choice: ").strip()
 
-                if col_choice == '2':
+                if col_choice == '3':
                     break
+                elif col_choice == '2':
+                    # Dump all columns: run sqlmap with --dump without -C
+                    confirm = ask_yes_no(f"Are you sure you want to dump ALL columns of table '{table_name}'? (ensure you have permission)", default="n")
+                    if not confirm:
+                        print("Aborted dumping all columns.")
+                        continue
+                    run_sqlmap(f"sqlmap -u '{url}' --batch -D '{db_name}' -T '{table_name}' --dump")
                 elif col_choice == '1':
+                    # Ask whether user wants to select all parsed columns quickly
+                    if columns:
+                        use_all = ask_yes_no("Do you want to select ALL parsed columns shown above?", default="n")
+                        if use_all:
+                            # If user wants all, run dump for all (same as option 2)
+                            confirm = ask_yes_no(f"Confirm: dump ALL columns of '{table_name}'? (ensure permission)", default="n")
+                            if not confirm:
+                                print("Aborted dumping all columns.")
+                                continue
+                            run_sqlmap(f"sqlmap -u '{url}' --batch -D '{db_name}' -T '{table_name}' --dump")
+                            continue
+                    # Otherwise ask for comma-separated column list
                     column_names = input("Enter column names (comma separated): ").strip()
+                    if not column_names:
+                        print("No columns entered. Returning to column menu.")
+                        continue
                     run_sqlmap(f"sqlmap -u '{url}' --batch -D '{db_name}' -T '{table_name}' -C '{column_names}' --dump")
                 else:
                     print("Invalid choice.")
